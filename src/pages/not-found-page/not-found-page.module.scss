@@ -1,0 +1,168 @@
+.errorPage {
+  text-align: center;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  svg {
+    max-width: 80%;
+    height: auto;
+
+    [fill="#FE8080"] {
+      fill: #4481c3;
+    }
+
+    [fill="#8F2120"] {
+      fill: #2a5a8c;
+    }
+
+    [fill="#FDBCBC"] {
+      fill: #6ba3d6;
+    }
+
+    [fill="#C18C8C"] {
+      fill: #7a6b5e;
+    }
+
+    [fill="#841915"] {
+      fill: #1e3a5f;
+    }
+
+    [fill="#550403"] {
+      fill: #0f2a44;
+    }
+
+    [fill="#A26764"] {
+      fill: #8b7b6e;
+    }
+
+    [fill="#FEE6DA"] {
+      fill: #89b9e0;
+    }
+
+    [fill="#FEF1E7"] {
+      fill: #c5d9ed;
+    }
+
+    [fill="white"] {
+      fill: rgba(255, 255, 255, 0.9);
+    }
+
+    linearGradient {
+      stop {
+        &[stop-color="#920E00"] {
+          stop-color: #3069a6;
+        }
+        &[stop-color="#8E2026"] {
+          stop-color: #1e4d7a;
+        }
+      }
+    }
+  }
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 250px;
+  width: 100%;
+  gap: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.svgWrapper {
+  position: relative;
+  width: 100vw;
+}
+
+.errorTextContainer {
+  text-align: center;
+}
+
+.backButton {
+  padding: 15px 30px;
+  font-size: 36px;
+  font-weight: 500;
+  color: #ffffff;
+  background: linear-gradient(135deg, #4481c3 0%, #3069a6 100%);
+  border: none;
+  border-radius: 35px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(68, 129, 195, 0.3);
+  outline: none;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    background: linear-gradient(135deg, #5a96d4 0%, #3a7ab3 100%);
+    box-shadow: 0 6px 20px rgba(68, 129, 195, 0.5);
+  }
+
+  &:focus-visible {
+    outline: 3px solid #ff9000;
+    outline-offset: 3px;
+    background: linear-gradient(135deg, #5a96d4 0%, #3a7ab3 100%);
+  }
+
+  &:active {
+    background: linear-gradient(135deg, #2a5a8c 0%, #1e4d7a 100%);
+    box-shadow: 0 2px 8px rgba(68, 129, 195, 0.4);
+    transition: all 0.05s ease;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: linear-gradient(135deg, #4481c3 0%, #3069a6 100%);
+    box-shadow: 0 4px 15px rgba(68, 129, 195, 0.15);
+
+    &:hover {
+      background: linear-gradient(135deg, #4481c3 0%, #3069a6 100%);
+      box-shadow: 0 4px 15px rgba(68, 129, 195, 0.15);
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: width 0.4s ease, height 0.4s ease, opacity 0.4s ease;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &:active::after {
+    width: 200%;
+    height: 200%;
+    opacity: 1;
+    transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
+  }
+}
+
+@media (max-width: 768px) {
+  .errorPage svg {
+    max-width: 95%;
+  }
+
+  .contentWrapper {
+    gap: 20px;
+  }
+
+  .backButton {
+    padding: 10px 20px;
+    font-size: 24px;
+  }
+}
