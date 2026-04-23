@@ -10,10 +10,9 @@ import NotFoundPage from '../../pages/not-found-page/not-found-page';
 
 type AppProps = {
   rentalOffersCount: number;
-  style: string;
 }
 
-function App({ rentalOffersCount, style }: AppProps): JSX.Element {
+function App({ rentalOffersCount }: AppProps): JSX.Element {
   return (
     <HelmetProvider>
       <BrowserRouter>
@@ -42,7 +41,7 @@ function App({ rentalOffersCount, style }: AppProps): JSX.Element {
           />
           <Route
             path={AppRoute.NOT_FOUND}
-            element={<NotFoundPage style={style} />}
+            element={<NotFoundPage />}
           />
         </Routes>
       </BrowserRouter>

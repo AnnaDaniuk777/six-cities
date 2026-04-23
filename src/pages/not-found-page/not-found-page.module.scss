@@ -11,7 +11,7 @@
 
   svg {
     max-width: 80%;
-    height: auto;
+    max-height: 100%;
 
     [fill="#FE8080"] {
       fill: #4481c3;
@@ -70,16 +70,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 250px;
   width: 100%;
-  gap: 40px;
   position: relative;
   z-index: 2;
 }
 
 .svgWrapper {
   position: relative;
-  width: 100vw;
+  max-width: 100vw;
+  height: calc(100vh - 160px);
 }
 
 .errorTextContainer {
@@ -128,27 +127,6 @@
       background: linear-gradient(135deg, #4481c3 0%, #3069a6 100%);
       box-shadow: 0 4px 15px rgba(68, 129, 195, 0.15);
     }
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    transition: width 0.4s ease, height 0.4s ease, opacity 0.4s ease;
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  &:active::after {
-    width: 200%;
-    height: 200%;
-    opacity: 1;
-    transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
   }
 }
 
