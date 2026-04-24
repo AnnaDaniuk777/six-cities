@@ -13,6 +13,13 @@
     max-width: 80%;
     max-height: 100%;
 
+    .pulse404 {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: pulse404 2.2s ease-in-out infinite;
+      will-change: transform;
+    }
+
     [fill="#FE8080"] {
       fill: #4481c3;
     }
@@ -63,6 +70,92 @@
         }
       }
     }
+  }
+}
+
+.floatingDots {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.dot {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(197, 217, 237, 0.95), rgba(68, 129, 195, 0.28) 60%, rgba(68, 129, 195, 0) 72%);
+  filter: blur(0.2px);
+  opacity: 0.55;
+  transform: translate3d(0, 0, 0);
+  animation: dotFloat var(--dur) ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+// Tuned, deterministic variety via nth-child (no JS randomness)
+.dot:nth-child(1) { --x: 8%;  --y: 18%; --size: 16px; --dur: 10s; }
+.dot:nth-child(2) { --x: 18%; --y: 72%; --size: 10px; --dur: 13s; }
+.dot:nth-child(3) { --x: 28%; --y: 38%; --size: 22px; --dur: 16s; }
+.dot:nth-child(4) { --x: 36%; --y: 82%; --size: 12px; --dur: 12s; }
+.dot:nth-child(5) { --x: 44%; --y: 16%; --size: 9px;  --dur: 14s; }
+.dot:nth-child(6) { --x: 52%; --y: 60%; --size: 18px; --dur: 18s; }
+.dot:nth-child(7) { --x: 61%; --y: 28%; --size: 11px; --dur: 11s; }
+.dot:nth-child(8) { --x: 68%; --y: 78%; --size: 24px; --dur: 19s; }
+.dot:nth-child(9) { --x: 74%; --y: 44%; --size: 14px; --dur: 15s; }
+.dot:nth-child(10){ --x: 81%; --y: 22%; --size: 12px; --dur: 12s; }
+.dot:nth-child(11){ --x: 86%; --y: 66%; --size: 20px; --dur: 17s; }
+.dot:nth-child(12){ --x: 92%; --y: 36%; --size: 8px;  --dur: 9s;  }
+.dot:nth-child(13){ --x: 12%; --y: 46%; --size: 13px; --dur: 14s; }
+.dot:nth-child(14){ --x: 58%; --y: 10%; --size: 15px; --dur: 16s; }
+.dot:nth-child(15){ --x: 6%;  --y: 54%; --size: 9px;  --dur: 11s; }
+.dot:nth-child(16){ --x: 16%; --y: 30%; --size: 14px; --dur: 15s; }
+.dot:nth-child(17){ --x: 24%; --y: 88%; --size: 18px; --dur: 18s; }
+.dot:nth-child(18){ --x: 33%; --y: 12%; --size: 10px; --dur: 12s; }
+.dot:nth-child(19){ --x: 41%; --y: 70%; --size: 26px; --dur: 20s; }
+.dot:nth-child(20){ --x: 49%; --y: 42%; --size: 12px; --dur: 13s; }
+.dot:nth-child(21){ --x: 63%; --y: 90%; --size: 16px; --dur: 17s; }
+.dot:nth-child(22){ --x: 71%; --y: 8%;  --size: 9px;  --dur: 10s; }
+.dot:nth-child(23){ --x: 83%; --y: 52%; --size: 14px; --dur: 14s; }
+.dot:nth-child(24){ --x: 95%; --y: 84%; --size: 22px; --dur: 19s; }
+
+@keyframes dotFloat {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) translate(var(--dx, 40px), var(--dy, -30px));
+  }
+}
+
+.dot:nth-child(odd) { --dx: 46px; --dy: -34px; }
+.dot:nth-child(even) { --dx: -38px; --dy: 42px; }
+
+@keyframes pulse404 {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.92;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .errorPage svg .pulse404 {
+    animation: none;
+    transform: none;
+    opacity: 1;
+  }
+
+  .dot {
+    animation: none;
+    transform: none;
   }
 }
 
