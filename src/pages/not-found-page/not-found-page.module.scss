@@ -20,55 +20,8 @@
       will-change: transform;
     }
 
-    [fill="#FE8080"] {
-      fill: #4481c3;
-    }
-
-    [fill="#8F2120"] {
-      fill: #2a5a8c;
-    }
-
-    [fill="#FDBCBC"] {
-      fill: #6ba3d6;
-    }
-
-    [fill="#C18C8C"] {
-      fill: #7a6b5e;
-    }
-
-    [fill="#841915"] {
-      fill: #1e3a5f;
-    }
-
-    [fill="#550403"] {
-      fill: #0f2a44;
-    }
-
-    [fill="#A26764"] {
-      fill: #8b7b6e;
-    }
-
-    [fill="#FEE6DA"] {
-      fill: #89b9e0;
-    }
-
-    [fill="#FEF1E7"] {
-      fill: #c5d9ed;
-    }
-
     [fill="white"] {
       fill: rgba(255, 255, 255, 0.9);
-    }
-
-    linearGradient {
-      stop {
-        &[stop-color="#920E00"] {
-          stop-color: #3069a6;
-        }
-        &[stop-color="#8E2026"] {
-          stop-color: #1e4d7a;
-        }
-      }
     }
   }
 }
