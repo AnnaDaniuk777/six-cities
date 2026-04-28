@@ -1,8 +1,12 @@
-export const Setting = {
-  RentalOffersCount: 5
+import { SortType } from './types';
+
+export const SORT_TYPES: SortType[] = ['Popular', 'Price: low to high', 'Price: high to low', 'Top rated first'];
+
+export const SETTING = {
+  RentalOffersCount: 4
 };
 
-export enum AppRoute {
+export enum APP_ROUTE {
   ROOT = '/',
   LOGIN = '/login',
   FAVORITES = '/favorites',
@@ -10,7 +14,7 @@ export enum AppRoute {
   NOT_FOUND = '*'
 }
 
-export enum AuthorizationStatus {
+export enum AUTH_STATUS {
   Auth = 'AUTH',
   NoAuth = 'NO_AUTH',
   Unknown = 'UNKNOWN',

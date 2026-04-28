@@ -1,6 +1,6 @@
 import styles from './not-found-page.module.scss';
 import { Link } from 'react-router-dom';
-import { AppRoute } from '../../const';
+import { APP_ROUTE } from '../../const';
 
 type NotFoundPageProps = {
   style?: string;
@@ -165,7 +165,7 @@ function NotFoundPage({ style }: NotFoundPageProps): JSX.Element {
         <div className={styles.errorTextContainer}>
           <Link
             className={styles.backButton}
-            to={AppRoute.ROOT}
+            to={APP_ROUTE.ROOT}
           >
             Go Back Home
           </Link>

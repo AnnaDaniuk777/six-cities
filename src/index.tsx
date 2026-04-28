@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './components/app/app';
-import { Setting } from './const';
+import { BrowserRouter } from 'react-router-dom';
+import { mockOffers } from './mocks/offers';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -9,6 +10,8 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <App rentalOffersCount={Setting.RentalOffersCount}/>
+    <BrowserRouter>
+      <App offers={mockOffers}/>
+    </BrowserRouter>
   </React.StrictMode>
 );
